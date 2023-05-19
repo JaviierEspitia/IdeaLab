@@ -1,0 +1,31 @@
+<%= form_with model: @product do |form| %>
+
+  <div>
+    <% if @product.errors.any? %>
+      <% @product.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    <% end %>
+  </div>
+
+  <!-- Name input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form4Example1">Name</label>
+    <%= form.text_field :name, class:"form-control"%>
+  </div>
+
+  <!-- Message input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form4Example3">Message</label>
+    <%= form.text_area :description, class:"form-control", rows:"4" %>
+  </div>
+
+  <!-- Checkbox -->
+  <div class="form-check d-flex justify-content-center mb-4">
+    <%= form.check_box :visible, class:"form-check-input me-2" %>
+    <%= form.label "Visible" %>
+  </div>
+
+  <!-- Submit button -->
+  <%= form.submit "Guardar", class:"btn btn-primary btn-block mb-4"%>
+<% end %>
