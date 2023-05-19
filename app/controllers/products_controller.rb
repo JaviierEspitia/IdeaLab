@@ -2,7 +2,8 @@ class ProductsController < ApplicationController
 
   before_action :set_product, only: [:edit, :show, :update, :destroy]
   def index
-    @products = Product.all
+    current_page = params[:page] ||= 1
+    @products = Product.all.paginate(page: current_page, per_page: 2)
   end
 
   def new
@@ -44,6 +45,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def search
+    @q = params[:q]
+    @products = Product.where("name LIKE ?", "%#{@q}%")
+  end
+
   private
 
   def set_product
@@ -51,6 +57,6 @@ class ProductsController < ApplicationController
   end
 
   def products_params
-    params.require(:product).permit(:name, :description, :visible)
+    params.require(:product).permit(:name, :description, :visible, :image)
   end
 end

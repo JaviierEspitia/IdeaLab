@@ -13,10 +13,10 @@
           <%= link_to "Productos", products_path, class:"nav-link" %>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <%= form_tag search_products_path, method: :get, class:"d-flex", role:"search" do %>
+        <%= text_field_tag :q, params[:q], placeholder:"nombre del producto" %>
+        <%= button_tag "Buscar", type:"submit", class:"btn btn-outline-success" %>
+      <% end %>
     </div>
   </div>
 </nav>

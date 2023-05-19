@@ -20,6 +20,10 @@
     <%= form.text_area :description, class:"form-control", rows:"4" %>
   </div>
 
+  <div class="mb-3">
+    <%= form.file_field :image %>
+  </div>
+
   <!-- Checkbox -->
   <div class="form-check d-flex justify-content-center mb-4">
     <%= form.check_box :visible, class:"form-check-input me-2" %>
