@@ -23,4 +23,7 @@ class Product < ApplicationRecord
   validates :name, length: { maximum: 200, minimum: 2}
 
   has_one_attached :image, dependent: :destroy
+  has_many :product_categories
+
+  has_many :categories, through: :product_categories # join
 end
