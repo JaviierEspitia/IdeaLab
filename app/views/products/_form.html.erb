@@ -20,6 +20,14 @@
     <%= form.text_area :description, class:"form-control", rows:"4" %>
   </div>
 
+  <div class="form-outline mb-4">
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |category| %>
+      <%= category.label class:"form-label" do %>
+        <%= category.check_box + category.text %>
+      <% end %>
+    <% end %>
+  </div>
+
   <div class="mb-3">
     <%= form.file_field :image %>
   </div>

@@ -3,3 +3,11 @@
   <%= link_to "Editar", edit_product_path(@product) %>
   <%= link_to "Eliminar", product_path(@product), data: { turbo_method: :delete, turbo_confirm: "Estas seguro de eliminar"} %>
 </p>
+
+<% @product.categories.each do |category| %>
+  <p><%= category.name %></p>
+<% end %>
+
+<section>
+  <%= render partial: 'comments/comment', collection: @product.comments, as: :comment %>
+</section>

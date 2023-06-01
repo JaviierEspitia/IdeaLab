@@ -25,5 +25,9 @@ class Product < ApplicationRecord
   has_one_attached :image, dependent: :destroy
   has_many :product_categories
 
-  has_many :categories, through: :product_categories # join
+  has_many :categories, through: :product_categories # join get categories of product
+
+  accepts_nested_attributes_for :categories # podremos relacionar categorias con los productos
+
+  has_many :comments
 end
