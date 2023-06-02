@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   #post "products", to:"products#create"
   resources :products do
     get 'search', on: :collection
+    resources :comments, only: [:create]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

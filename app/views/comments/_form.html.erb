@@ -1,0 +1,11 @@
+<%= form_with model:[@product, Comment.new] do |form|%>
+  <!-- Name input -->
+  <div class="form-outline mb-4">
+    <%= form.text_field :content, class:"form-control", placeholder:"Deja tu comentario" %>
+
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= form.submit "Comentar", class:"btn btn-primary btn-block mb-4"%>
+  </div>
+<% end %>
