@@ -20,4 +20,6 @@ class Comment < ApplicationRecord
   belongs_to :product
 
   validates :content, presence: { message: "%{value} no puede estar vacio" }
+
+  has_many :votes, as: :votable
 end

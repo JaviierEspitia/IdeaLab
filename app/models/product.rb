@@ -30,4 +30,6 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :categories # podremos relacionar categorias con los productos
 
   has_many :comments, -> { order('Id DESC') }
+
+  has_many :votes, as: :votable
 end
