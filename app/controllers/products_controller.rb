@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :show, :update, :destroy]
   def index
     current_page = params[:page] ||= 1
-    @products = Product.all.paginate(page: current_page, per_page: 2)
+    @products = Product.populars.paginate(page: current_page, per_page: 2)
   end
 
   def new

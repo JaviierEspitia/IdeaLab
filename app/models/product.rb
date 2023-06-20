@@ -32,4 +32,11 @@ class Product < ApplicationRecord
   has_many :comments, -> { order('Id DESC') }
 
   has_many :votes, as: :votable
+
+  def self.populars
+    joins("LEFT JOIN votes ON votes.votable_id = products.id AND votes.votable_type = 'Product'").select("products.* , count(votes.id) as total").group("products.id").order("total DESC")
+
+  end
+
+
 end

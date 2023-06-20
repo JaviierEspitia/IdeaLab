@@ -9,6 +9,17 @@
 <% end %>
 
 <section>
+  <div>
+    <%= form_with model:[@product, Vote.new] do |form| %>
+      <%= form.submit "Votar", class:"btn btn-primary" %>
+    <% end %>
+  </div>
+  <small>
+    Votos: <%= @product.votes.count %>
+  </small>
+</section>
+
+<section>
   <%= render partial: 'comments/comment', collection: @product.comments, as: :comment %>
 </section>
 

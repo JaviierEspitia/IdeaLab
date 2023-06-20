@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :products do
     get 'search', on: :collection
     resources :comments, only: [:create]
+    resources :votes, only: [:create]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
