@@ -29,5 +29,5 @@ class Product < ApplicationRecord
 
   accepts_nested_attributes_for :categories # podremos relacionar categorias con los productos
 
-  has_many :comments
+  has_many :comments, -> { order('Id DESC') }
 end
